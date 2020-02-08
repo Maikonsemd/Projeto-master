@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d32f2f</color>
+    <color name="colorPrimaryDark">#9a0007</color>
+    <color name="colorAccent">#212121</color>
+    <color name="confirmar">#43A047</color>
+    <color name="editar">#f9a825</color>
+    <color name="excluir">#c62828</color>
+    <color name="adicionar">#0277bd</color>
+    <color name="colorGray">#b0bec5</color>
+</resources>

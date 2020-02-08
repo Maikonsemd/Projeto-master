@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ProjetoSEMD</string>
+    <string name="btn_logar">Logar</string>
+    <string name="txtCadastrar">Não tem conta? Cadastre-se.</string>
+    <string name="btn_adicionar">Adicionar</string>
+    <string name="btn_cadastrar">Cadastrar</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_excluir">Excluir</string>
+    <string name="btn_atualizar">Atualizar</string>
+    <string name="esqueceu_senha">Esqueceu a senha?</string>
+</resources>

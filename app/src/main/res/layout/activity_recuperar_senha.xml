@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".RecuperarSenha">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="207dp"
+                android:layout_height="185dp"
+                android:background="@drawable/esqueciminhasenha" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ESQUECEU SUA SENHA?"
+                android:textAlignment="center"
+                android:layout_margin="16dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="22dp"
+                app:fontFamily="sans-serif-black"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="221dp"
+                android:layout_height="70dp"
+                android:text="Insira o endereço de e-mail associado à sua conta."
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/idEmailRecuperar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="exemplo@exemplo.com"
+                android:inputType="textEmailAddress"/>
+
+            <Button
+                android:id="@+id/btnrecuperarsenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@color/confirmar"
+                android:text="enviar"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
