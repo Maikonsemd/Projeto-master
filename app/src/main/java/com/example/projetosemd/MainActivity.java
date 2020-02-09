@@ -3,6 +3,7 @@ package com.example.projetosemd;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.projetosemd.MODEL.Paroquia;
 import com.example.projetosemd.admActivity.HomeAdm;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,11 +20,13 @@ import com.google.firebase.database.DatabaseReference;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Paroquia paroquia;
+
     private EditText email,senha;
     private Button cadastro;
     DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
+    private Paroquia paroquia;
+
 
 
     @Override
@@ -33,16 +35,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         email=findViewById(R.id.idEmail);
         senha=findViewById(R.id.idSenha);
-        cadastro=findViewById(R.id.idBtnCadastar);
+        cadastro=findViewById(R.id.idBtnLogar);
 
         cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(email.equals("")||senha.equals("")){
 
-                    Toast.makeText(getApplicationContext(),"preencha os campos vazio",Toast.LENGTH_LONG).show();
+                if(email.length()==0){
+                    email.setError("digite seu e-mail");
+                }else if(senha.length()==0){
+                    senha.setError("digite sua senha");
+                }
 
-                }else {
+                else {
+                    paroquia = new Paroquia();
                     paroquia.setEmail(email.getText().toString());
                     paroquia.setSenha(senha.getText().toString());
                     validarlogin();
@@ -62,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     Abrirtela();
 
                 }else{
-                    Toast.makeText(getApplicationContext(),"Senha ou email errado",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Senha ou email errados",Toast.LENGTH_LONG).show();
                 }
 
             }

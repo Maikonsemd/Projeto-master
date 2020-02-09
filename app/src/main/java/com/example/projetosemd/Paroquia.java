@@ -1,4 +1,4 @@
-package com.example.projetosemd.MODEL;
+package com.example.projetosemd;
 
 public class Paroquia {
     private String nome;

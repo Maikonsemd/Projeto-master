@@ -10,20 +10,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.projetosemd.MODEL.Paroquia;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Cadastrar extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
     EditText nome, email, senha, confsenha, cpf;
     Button cadastrar;
+    private Paroquia paroquia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +35,7 @@ public class Cadastrar extends AppCompatActivity {
         confsenha = findViewById(R.id.idComSenha);
         cpf = findViewById(R.id.idEditCPF);
         cadastrar = findViewById(R.id.idBtnCadastar);
+         paroquia = new Paroquia();
 
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +48,7 @@ public class Cadastrar extends AppCompatActivity {
                 ) {
                     Toast.makeText(getApplicationContext(), "preencha os campos", Toast.LENGTH_LONG).show();
                 } else {
-                    Paroquia paroquia = new Paroquia();
+
                     paroquia.setNome(nome.getText().toString());
                     paroquia.setCpf(cpf.getText().toString());
                     paroquia.setEmail(email.getText().toString());
@@ -74,7 +74,7 @@ public class Cadastrar extends AppCompatActivity {
                     startActivity(intent);
 
                 }else{
-                    Toast.makeText(getApplicationContext(),"Erro cadastro",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Err cadastro",Toast.LENGTH_LONG).show();
 
                 }
 
@@ -87,7 +87,7 @@ public class Cadastrar extends AppCompatActivity {
     private boolean salvar(Paroquia paroquia) {
         try {
 
-            DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase();
+            databaseReference = ConfiguracaoFirebase.getFirebase();
             databaseReference.child("usuario").push().setValue(paroquia);
             return true;
 
@@ -101,7 +101,7 @@ public class Cadastrar extends AppCompatActivity {
 
     protected void onStart() {
         super.onStart();
-        FirebaseAuth firebaseAuth = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        firebaseAuth= ConfiguracaoFirebase.getFirebaseAutenticacao();
     }
 
 }
